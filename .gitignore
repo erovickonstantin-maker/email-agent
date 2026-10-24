@@ -1,0 +1,10 @@
+# Geheimnisse: niemals ins Internet hochladen
+.env
+*.token
+*.json
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
