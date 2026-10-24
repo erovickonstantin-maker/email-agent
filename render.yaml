@@ -1,0 +1,34 @@
+# Render Blueprint: Der Agent läuft als "Background Worker" (dauerhaft, ohne Webseite).
+# Die Werte mit "sync: false" trägst du beim Einrichten auf render.com selbst ein.
+services:
+  - type: worker
+    name: postfach-agent
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GMAIL_PRIVAT_REFRESH_TOKEN
+        sync: false
+      - key: GMAIL_HEADNECK_REFRESH_TOKEN
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: PRIVAT_CONTEXT
+        sync: false
+      - key: HEADNECK_CONTEXT
+        sync: false
+      - key: PRIVAT_SENDER_NAME
+        sync: false
+      - key: HEADNECK_SENDER_NAME
+        sync: false
